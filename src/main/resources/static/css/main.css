@@ -29,9 +29,25 @@ a.active {
 }
 
 .post {
-	border-bottom: 1px solid #c3c3c3;
 	margin-bottom: 2em;
-	padding-bottom: .5em;
+	border: 1px solid gray;
+	padding: 1em;
+	border-radius: 6px;
+	background-color: #edf4ff;
+	cursor: pointer;
+}
+
+.post .post-detail {
+    margin-bottom: 2em;
+    border: 1px solid gray;
+    padding: 1em;
+    border-radius: 6px;
+    background-color: #edf4ff;
+    cursor: pointer;
+}
+
+.post:hover {
+    box-shadow: 0px 0px 5px gray inset;
 }
 
 .post-content{
@@ -54,7 +70,14 @@ a.active {
 	font-size: 0.8em;
 	font-weight: bold;
 	color: #272727;
+}
+
+.post .like-counter {
 	margin: 5px 0px 2px 0px;
+}
+
+.post-detail .like-counter {
+    margin: 9px 0 9px 2px;
 }
 
 .post:hover .post-content {
@@ -97,4 +120,49 @@ a.active {
 #users-list .form-group {
     margin-bottom: 0;
     margin-top: 12px;
+}
+
+.user {
+    font-style: italic;
+    color: grey;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.content-cut {
+    font-size: .9em;
+}
+
+a.like-link:hover {
+    box-shadow: 0px 0px 8px grey, 0px 0px 1px white inset;
+}
+
+a.like-link {
+    background-color: dodgerblue;
+    color: white !important;
+    border: 1px solid #4e4e4e;
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+.post div.like-counter > span {
+    margin-right: 10px;
+}
+
+.date {
+    margin-left: 50%;
+    font-weight: normal;
+    color: #5a5a5a;
+}
+
+.see-more:hover {
+	color: black !important;
+}
+
+.see-more {
+    font-weight: bolder;
+    font-size: .95em;
+    color: #1272ae;
 }

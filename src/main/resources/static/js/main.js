@@ -36,7 +36,13 @@ var dialog = $("#users-list").dialog({
     }
 });
 
-$(".like-link").click(function() {
+$(".like-link").click(function(event) {
+	event.stopPropagation();
 	postId = $(this).attr('id');
 	dialog.dialog("open");
+});
+
+$("div.post").click(function() {
+	postId = $(this).attr('id').replace("post-", "");
+	window.location.href = "/posts/" + postId;
 });

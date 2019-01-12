@@ -20,7 +20,7 @@ public class MainWebController {
 	@RequestMapping("/")
 	public String welcome(ModelMap model) {
 		model.addAttribute("users", userRepository.findAll());
-		model.addAttribute("posts", postRepository.findAll());
+		model.addAttribute("posts", postRepository.findAllByOrderByDateDesc());
 		return "welcome";
 	}
 }

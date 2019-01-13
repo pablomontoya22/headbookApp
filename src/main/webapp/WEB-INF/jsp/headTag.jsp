@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 	<meta charset="utf-8"/>
+	<title>HeadBook</title>
 	<c:url value="/css/main.css" var="jstlCss"/>
 	<link href="${jstlCss}" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

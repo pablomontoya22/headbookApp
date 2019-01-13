@@ -14,7 +14,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.transaction.annotation.Transactional;
 
-import app.entities.Like_;
+import app.entities.Like;
 import app.entities.Post;
 import app.entities.User;
 import app.repositories.LikeRepository;
@@ -78,14 +78,14 @@ public class Application extends SpringBootServletInitializer {
         	{5L, "Hola Mundo de Eduardo!",
         			"Este es un post generado al início de la aplicación Eduardo.",
         			new Long[]{2L, 3L, 6L}}};
-    	List<Like_> likes;
+    	List<Like> likes;
         Post postLoop;
         for (Object[] post : defaultPosts) {
-        	likes = new ArrayList<Like_>(0);
+        	likes = new ArrayList<Like>(0);
         	postLoop = postRepository.save(new Post(userRepository.findById((Long) post[0]).get(),
         			post[1].toString(), post[2].toString()));
         	for (Long idUser : (Long [])post[3])
-        		likes.add(likeRepository.save(new Like_(userRepository.findById(idUser).get(), postLoop)));
+        		likes.add(likeRepository.save(new Like(userRepository.findById(idUser).get(), postLoop)));
         	postLoop.setLikes(likes);
         	postRepository.save(postLoop);
         }

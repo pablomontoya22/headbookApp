@@ -27,7 +27,7 @@ public class User {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Post> posts;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Like_> likes;
+	private List<Like> likes;
 
 	public User() {}
 
@@ -70,10 +70,10 @@ public class User {
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
-	public List<Like_> getLikes() {
+	public List<Like> getLikes() {
 		return likes;
 	}
-	public void setLikes(List<Like_> likes) {
+	public void setLikes(List<Like> likes) {
 		this.likes = likes;
 	}
 }

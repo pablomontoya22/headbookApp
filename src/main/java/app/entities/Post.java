@@ -30,7 +30,7 @@ public class Post {
 	@Column(length = 500)
 	private String content;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-	private List<Like_> likes;
+	private List<Like> likes;
 
 	public Post() {}
 
@@ -73,10 +73,10 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public List<Like_> getLikes() {
+	public List<Like> getLikes() {
 		return likes;
 	}
-	public void setLikes(List<Like_> likes) {
+	public void setLikes(List<Like> likes) {
 		this.likes = likes;
 	}
 }

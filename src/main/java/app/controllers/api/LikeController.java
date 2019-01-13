@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.entities.Like_;
+import app.entities.Like;
 import app.entities.Post;
 import app.entities.User;
 import app.helpers.Messages;
@@ -40,14 +40,14 @@ public class LikeController {
 	private Response get(@PathVariable("id") Long id) {
 		try {
 			return id > 0 ? new Response(wrap(r.findById(id).get()))
-					: new Response((List<Like_>) r.findAll());
+					: new Response((List<Like>) r.findAll());
 		} catch (Exception e) {
 			return new Response(false, Messages.ERROR);
 		}
 	}
 
 	@PostMapping
-	private Response save(@RequestBody Like_ entity) {
+	private Response save(@RequestBody Like entity) {
 		try {
 			return new Response(wrap(r.save(entity)));
 		} catch (Exception e) {
@@ -56,7 +56,7 @@ public class LikeController {
 	}
 
 	@PutMapping
-	private Response update(@RequestBody Like_ entity) {
+	private Response update(@RequestBody Like entity) {
 		try {
 			r.save(entity);
 			return new Response(true, Messages.UPDATED);
@@ -75,7 +75,7 @@ public class LikeController {
 		}
 	}
 
-	private List<Like_> wrap(Like_ u) {
+	private List<Like> wrap(Like u) {
 		return Arrays.asList(u);
 	}
 
@@ -84,9 +84,9 @@ public class LikeController {
 		try {
 			Post post = postRepository.findById(data.get("postId")).get();
 			User user = userRepository.findById(data.get("userId")).get();
-			Like_ previous = r.findByUserAndPost(user, post);
+			Like previous = r.findByUserAndPost(user, post);
 			if (previous == null) {
-				post.getLikes().add(r.save(new Like_(user, post)));
+				post.getLikes().add(r.save(new Like(user, post)));
 				postRepository.save(post);
 				return new Response(true);
 			} else {

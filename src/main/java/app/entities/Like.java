@@ -7,12 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Like_ {
+@Table(name = "\"like\"")
+public class Like {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -25,14 +27,14 @@ public class Like_ {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Post post;
 
-	public Like_(@NotNull(message = "User can't be empty") User user,
+	public Like(@NotNull(message = "User can't be empty") User user,
 			@NotNull(message = "Post can't be empty") Post post) {
 		super();
 		this.user = user;
 		this.post = post;
 	}
 
-	public Like_() {}
+	public Like() {}
 
 	public Long getId() {
 		return id;
